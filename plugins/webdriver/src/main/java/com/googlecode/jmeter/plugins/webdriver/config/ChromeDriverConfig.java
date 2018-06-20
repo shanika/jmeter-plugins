@@ -53,6 +53,12 @@ public class ChromeDriverConfig extends WebDriverConfig<ChromeDriver> {
             if (isHeadlessEnabled()) {
                 chromeOptions.addArguments("--headless");
             }
+
+            // Avoid DevToolsActivePort file doesn't exist error
+            chromeOptions.addArguments("--disable-dev-shm-usage");
+            chromeOptions.addArguments("--no-sandbox");
+            chromeOptions.setExperimentalOption("useAutomationExtension", false);
+
             capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         }
 
