@@ -32,7 +32,8 @@ public class ChromeDriverConfig extends WebDriverConfig<ChromeDriver> {
     }
 
     public String getChromeDriverPath() {
-        return getPropertyAsString(CHROME_SERVICE_PATH);
+        //return getPropertyAsString(CHROME_SERVICE_PATH);
+        return "/usr/local/bin/chromedriver";
     }
 
     Capabilities createCapabilities() {
