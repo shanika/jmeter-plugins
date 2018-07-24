@@ -51,11 +51,13 @@ public class ChromeDriverConfig extends WebDriverConfig<ChromeDriver> {
             if (isAndroidEnabled()) {
                 chromeOptions.setExperimentalOption("androidPackage", "com.android.chrome");
             }
-            if (isHeadlessEnabled()) {
-                chromeOptions.addArguments("--headless");
-            }
+
+//            if (isHeadlessEnabled()) {
+//                chromeOptions.addArguments("--headless");
+//            }
 
             // Avoid DevToolsActivePort file doesn't exist error
+            chromeOptions.addArguments("--headless");
             chromeOptions.addArguments("--disable-dev-shm-usage");
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.setExperimentalOption("useAutomationExtension", false);
