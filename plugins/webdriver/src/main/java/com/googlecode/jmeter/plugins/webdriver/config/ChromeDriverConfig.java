@@ -42,7 +42,7 @@ public class ChromeDriverConfig extends WebDriverConfig<ChromeDriver> {
         LoggingPreferences logPrefs = new LoggingPreferences();
 		logPrefs.enable(LogType.BROWSER, Level.ALL);
 		capabilities.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
-        
+
 
         if(isAndroidEnabled() || isHeadlessEnabled()) {
             //Map<String, String> chromeOptions = new HashMap<String, String>();
@@ -60,6 +60,7 @@ public class ChromeDriverConfig extends WebDriverConfig<ChromeDriver> {
             chromeOptions.addArguments("--headless");
             chromeOptions.addArguments("--disable-dev-shm-usage");
             chromeOptions.addArguments("--no-sandbox");
+            chromeOptions.addArguments("--window-size=1920,1080");
             chromeOptions.setExperimentalOption("useAutomationExtension", false);
 
             capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
